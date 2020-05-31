@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "venuszpli/myweb:1"
+    registry = "venuszpli/myweb"
     registryCredential = "dockerhub"
     dockerImage = ""
   }

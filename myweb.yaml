@@ -1,10 +1,10 @@
 ---
- apiVersion: v1
- kind: Pod
- metadata:
-   name: rmyweb
- spec:
-     - name: myweb
-       image: venuszpli/myweb
-       ports:
-         - containerPort: 88
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rmyweb
+spec:
+    - name: myweb
+      image: venuszpli/myweb
+      ports:
+      - containerPort: 88

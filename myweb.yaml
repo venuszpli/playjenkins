@@ -1,16 +1,17 @@
 ---
-apiVersion: apps/v1
-kind: Deployment
-
-spec:
-  replicas: 1
-
-  template:
-    metadata:
-      labels:
-        app: myweb
-    spec:
-      containers:
-      - image: venuszpli/myweb:1
-        imagePullPolicy: Always
-        name: myweb
+ apiVersion: v1
+ kind: Pod
+ metadata:
+   name: rss-site
+   labels:
+     app: web
+ spec:
+   containers:
+     - name: front-end
+       image: nginx
+       ports:
+         - containerPort: 80
+     - name: rss-reader
+       image: venuszpli/myweb
+       ports:
+         - containerPort: 88

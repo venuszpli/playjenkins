@@ -1,10 +1,20 @@
----
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: rmyweb
+  labels:
+    app: myweb
+  name: myweb
 spec:
-    - name: myweb
-      image: venuszpli/myweb
-      ports:
-      - containerPort: 88
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myweb
+  template:
+    metadata:
+      labels:
+        app: myweb
+    spec:
+      containers:
+      - image: venuszpli/myweb:3
+        imagePullPolicy: Always
+        name: myweb

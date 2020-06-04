@@ -37,8 +37,9 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS_AK_SK', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-              kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          withCredentials([string(credentialsId: 'AWS_AK', variable: 'aws_ak'), string(credentialsId: 'AWS_SK', variable: 'aws_sk')]) {
+             kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          }
           }
         }
       }

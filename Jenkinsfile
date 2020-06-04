@@ -37,14 +37,9 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          withCredentials([string(credentialsId: 'AWS_AK', variable: 'aws_ak'), string(credentialsId: 'AWS_SK', variable: 'aws_sk')]) {
-             kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
-          }
+          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
           }
         }
       }
     }
-
-  }
-
 }

@@ -39,9 +39,9 @@ pipeline {
     stage('Deploy App') {
       steps {
         sh "aws s3 ls"
-        sh "kubectl get pod -A"
         sh "whoami"
         sh "cat .kube/config"
+        sh "kubectl get pod -A"        
         script {
           kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
                 }

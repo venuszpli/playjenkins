@@ -40,7 +40,7 @@ pipeline {
       steps {
         sh "aws s3 ls"
         sh "whoami"
-        sh "cat .kube/config"
+        sh "pwd"
         sh "kubectl get pod -A"        
         script {
           kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")

@@ -4,6 +4,8 @@ pipeline {
     registry = "venuszpli/myweb"
     registryCredential = "docker-hub"
     dockerImage = ""
+    AWS_ACCESS_KEY_ID = "AWS_AK"
+    AWS_SECRET_ACCESS_KEY = "AWS_SK"
   }
 
   agent any

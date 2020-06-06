@@ -39,7 +39,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-         sh "bash"
+         sh "sleep 10000000000"
           }
         }
       }

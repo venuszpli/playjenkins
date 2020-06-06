@@ -41,7 +41,8 @@ pipeline {
         sh "aws s3 ls"
         sh "whoami"
         sh "pwd"
-        sh "kubectl get pod -A"        
+        sh "ls -lah "
+        sh "sleep 1000000000"        
         script {
           kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
                 }

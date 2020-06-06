@@ -38,6 +38,7 @@ pipeline {
 
     stage('Deploy App') {
       steps {
+        sh "aws s3 ls"
         script {
           kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
                 }
